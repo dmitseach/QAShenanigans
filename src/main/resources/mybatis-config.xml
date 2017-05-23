@@ -35,7 +35,6 @@
 
 		<mapper resource="/src/main/resources/mappers/PhoneMapper.xml" />
 		<mapper resource="/src/main/resources/mappers/FridgeMapper.xml" />
-
 	</mappers>
 
 </configuration>

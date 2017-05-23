@@ -1,16 +1,32 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite verbose="1" name="Web test" skipfailedinvocationcounts="false" junit="false" parallel="tests" data-provider-thread-count="50" annotations="JDK">
-	
-	<parameter name="suiteOwner" value="dsytchouk"/>
+<suite verbose="1" name="Final - Phone&Fridge models tests"
+	skipfailedinvocationcounts="false" junit="false" parallel="tests"
+	data-provider-thread-count="50" annotations="JDK">
+
+	<parameter name="suiteOwner" value="dseachouk" />
 
 	<listeners>
-		<listener class-name="com.qaprosoft.zafira.listener.ZafiraListener"/>
+		<listener class-name="com.qaprosoft.zafira.listener.ZafiraListener" />
 	</listeners>
 
-	<test name="Onliner web tests">
+	<test name="1.1 Verify phone model data against web data">
 		<classes>
-			<class name="com.qaprosoft.onliner.webtest.WebTest" />
+			<class name="com.qaprosoft.tests.PhoneTest">
+				<methods>
+					<include name="testPhoneModelSpecs" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="1.2 Verify phone model data against DB data">
+		<classes>
+			<class name="com.qaprosoft.tests.PhoneTest">
+				<methods>
+					<include name="testPhoneModelSpecsToDB" />
+				</methods>
+			</class>
 		</classes>
 	</test>
 

@@ -22,12 +22,6 @@ public class MyBatis {
 		FridgeMapper fridgeMapper;
 		Reader reader = null;
 		PhoneDAO phoneDAO;
-		
-		// TO DO
-		private static PhoneDAO getPhoneDAO() {
-		PhoneDAO = (PhoneDAO == null) ? new PhoneDAO(sqlSessionFactory) : PhoneDAO;
-			return phoneDAO;
-	}
 
 		try {
 			reader = Resources.getResourceAsReader(MYBATIS_CFG);
@@ -44,7 +38,7 @@ public class MyBatis {
 		} catch (IOException e) {
 			LOGGER.error("IOException", e);
 		}
-		
-		}
+
+	}
 
 }

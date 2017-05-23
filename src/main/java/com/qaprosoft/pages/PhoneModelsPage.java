@@ -20,23 +20,32 @@ public class PhoneModelsPage extends AbstractPage {
 	@FindBy(xpath = "//div[@id='schema-products']//span[contains(text(), 'TFT')]")
 	private ExtendedWebElement displayTypeCheckbox;
 
+	// TODO DON'T forget to INSERT the name of the necessary device to xpath below!!
+	@FindBy(xpath = "//div[@id='***NAME OF THE ID***']//span[contains(text(), '***NAME OF THE PHONE***')]")
+	private ExtendedWebElement phoneModelLink;
+
 	public PhoneModelsPage(WebDriver driver) {
 		super(driver);
 	}
 
-	public void selectBrand(String string) {
+	public void selectBrand() {
 		brandCheckbox.click();
 	}
 
-	public void selectResolution(String string) {
+	public void selectResolution() {
 		resolutionCheckbox.click();
 	}
 
-	public void selectRam(String string) {
+	public void selectOS() {
 		osCheckbox.click();
 	}
 
-	public void selectDisplayType(String string) {
+	public void selectDisplayType() {
 		displayTypeCheckbox.click();
+	}
+
+	public PhoneDescriptionPage selectPhoneModel() {
+		phoneModelLink.click();
+		return new PhoneDescriptionPage(driver);
 	}
 }

@@ -20,23 +20,33 @@ public class FridgeModelsPage extends AbstractPage {
 	@FindBy(xpath = "//div[@id='schema-products']//span[contains(text(), 'серебристый')]")
 	private ExtendedWebElement colourCheckbox;
 
+ 	// TODO DON'T forget to INSERT the name of the necessary device to xpath below!!
+	@FindBy(xpath = "//div[@id='***NAME OF THE ID***']//span[contains(text(), '***NAME OF THE FRIDGE***')]")
+	private ExtendedWebElement fridgeModelLink;
+
 	public FridgeModelsPage(WebDriver driver) {
 		super(driver);
 	}
 
-	public void selectBrand(String string) {
+	public void selectBrand() {
 		brandCheckbox.click();
 	}
 
-	public void selectConstructionType(String string) {
+	public void selectConstructionType() {
 		constructionTypeCheckbox.click();
 	}
 
-	public void selectCoolingSystemType(String string) {
+	public void selectCoolingSystemType() {
 		coolingSystemCheckbox.click();
 	}
 
-	public void selectColour(String string) {
+	public void selectColour() {
 		colourCheckbox.click();
 	}
+
+	public FridgeDescriptionPage selectFridgeModel() {
+		fridgeModelLink.click();
+		return new FridgeDescriptionPage(driver);
+	}
+
 }

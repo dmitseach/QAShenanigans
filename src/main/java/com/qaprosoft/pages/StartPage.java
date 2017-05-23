@@ -44,13 +44,13 @@ public class StartPage extends AbstractPage {
 		return fridgesSectionLink;
 	}
 
-	public PhoneModelsPage selectPhonesSection() {
+	public PhoneModelsPage tapOnPhonesSection() {
 		phonesSectionLink.click();
 		return new PhoneModelsPage(driver);
 	}
 
-	public PhoneModelsPage selectFridgesSection() {
+	public FridgeModelsPage tapOnFridgesSection() {
 		fridgesSectionLink.click();
-		return new PhoneModelsPage(driver);
+		return new FridgeModelsPage(driver);
 	}
 }
