@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE configuration 
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+	<properties resource="config.properties" />
+
+	<settings>
+		<setting name="lazyLoadingEnabled" value="true" />
+		<setting name="logImpl" value="LOG4J" />
+	</settings>
+
+	<typeAliases>
+		<typeAlias alias="Phone" type="com.qaprosoft.objects.Phone" />
+		<typeAlias alias="Fridge" type="com.qaprosoft.objects.Fridge" />
+	</typeAliases>
+
+	<environments default="prod">
+		<environment id="prod">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${PROD.onliner.db.driver}" />
+				<property name="url" value="${PROD.onliner.db.url}" />
+				<property name="username" value="${PROD.onliner.db.user}" />
+				<property name="password" value="${PROD.onliner.db.password}" />
+			</dataSource>
+		</environment>
+	</environments>
+
+	<mappers>
+		<mapper class="com.qaprosoft.dao.PhoneMapper" />
+		<mapper class="com.qaprosoft.dao.FridgeMapper" />
+
+		<mapper resource="/src/main/resources/mappers/PhoneMapper.xml" />
+		<mapper resource="/src/main/resources/mappers/FridgeMapper.xml" />
+
+	</mappers>
+
+</configuration>

@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite verbose="1" name="Web test" skipfailedinvocationcounts="false" junit="false" parallel="tests" data-provider-thread-count="50" annotations="JDK">
+	
+	<parameter name="suiteOwner" value="dsytchouk"/>
+
+	<listeners>
+		<listener class-name="com.qaprosoft.zafira.listener.ZafiraListener"/>
+	</listeners>
+
+	<test name="Onliner web tests">
+		<classes>
+			<class name="com.qaprosoft.onliner.webtest.WebTest" />
+		</classes>
+	</test>
+
+</suite>

@@ -1,0 +1,46 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite verbose="1" name="Carina Demo Tests - Dataproviders tests" skipfailedinvocationcounts="false" junit="false" parallel="tests" data-provider-thread-count="50" annotations="JDK">
+
+	<parameter name="suiteOwner" value="dseachouk" />
+
+	<listeners>
+		<listener class-name="com.qaprosoft.zafira.listener.ZafiraListener"/>
+	</listeners>
+
+	<test name="Concolidate operation test with given data provider">
+		<classes>
+			<class name="com.qaprosoft.webtest.DataprovidesTest">
+				<methods>
+					<include name="modelConcolidateInfoChecker"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Concolidate operation test with manual data provider">
+		<classes>
+			<class name="com.qaprosoft.webtest.DataprovidesTest">
+				<methods>
+					<include name="testConcolidateOperation"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+
+	<test name="Substract operation test">
+		<parameter name="length" value="254.2 mm, "/>
+		<parameter name="width" value="155.3 mm, "/>
+		<parameter name="thickness" value="8.2 mm"/>
+		<parameter name="expectedResult" value="254.2 mm, 155.3 mm, 8.2 mm"/>
+		<classes>
+			<class name="com.qaprosoft.webtest.DataprovidesTest">
+				<methods>
+					<include name="testInputFromOutSourceCredentialsOperation"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+</suite>
