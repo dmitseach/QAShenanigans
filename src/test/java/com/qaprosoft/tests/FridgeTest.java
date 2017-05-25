@@ -27,11 +27,14 @@ public class FridgeTest extends UITest {
 	}
 
 	@Test(dataProvider = "SingleDataProvider", description = "1.2 Verify model data against DB data", dependsOnMethods = "testFridgeModelSpecs")
-	public void testModelSpecs() {
+	@XlsDataSourceParameters(path = "xls/test.xlsx", sheet = "Fridges", dsUid = "TUID", dsArgs = "brand, colour, coolSyst, constrType")
+	public void testModelSpecs(String brand, String colour, String coolSyst, String constrType) {
 		// TODO
-		// 1. Get the data from DB
-		// 2. Verify is DB data valid against the data from "xls/test.xlsx" (see above @XlsDataSourceParameters)
-		// 3. If it's ok - the model info on the web site is valid against the
-		// DB data
+		// 1. Get the data from DB and toString it
+		String dbData = "";
+		// 2. Verify if DB data is valid against the data from "xls/test.xlsx" (see above @XlsDataSourceParameters)
+		String xlsData = brand + colour + coolSyst + constrType;
+		Assert.assertEquals(dbData, xlsData, "Model data is invalid against DB data!");
+		// 3. If it's ok - the model info on the web site is valid against the DB data
 	}
 }

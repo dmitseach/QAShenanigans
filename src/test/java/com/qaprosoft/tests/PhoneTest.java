@@ -26,13 +26,19 @@ public class PhoneTest extends UITest {
 		Assert.assertEquals(phoneDescriptionPage.readOS(), os, "OS info is invalid!!");
 		Assert.assertEquals(phoneDescriptionPage.readDisplay(), display, "Display type info is invalid!!");
 	}
-	
+
 	@Test(dataProvider = "SingleDataProvider", description = "1.2 Verify model data against DB data", dependsOnMethods = "testPhoneModelSpecs")
-	public void testPhoneModelSpecsToDB() {
+	@XlsDataSourceParameters(path = "xls/test.xlsx", sheet = "Phones", dsUid = "TUID", dsArgs = "brand, resolution, os, display, year")
+	public void testPhoneModelSpecsToDB(String brand, String model, String resolution, String os, String display) {
 		// TODO
-		// 1. Get the data from DB
-		// 2. Verify is DB data valid against the data from "xls/test.xlsx" (see above @XlsDataSourceParameters)
+		// 1. Get the data from DB and toString it
+		String dbData = "";
+		// 2. Verify if DB data is valid against the data from "xls/test.xlsx" (see
+		// above @XlsDataSourceParameters)
+		String xlsData = brand + model + resolution + os + display;
+		Assert.assertEquals(dbData, xlsData, "Model data is invalid against DB data!");
 		// 3. If it's ok - the model info on the web site is valid against the DB data
 		// NOTE: If change names of classes or methods - go to resources/web.xml to change binded data
+
 	}
 }
