@@ -16,41 +16,28 @@
 package com.qaprosoft.pages;
 
 import static com.qaprosoft.utils.Constants.URLS.ONLINER_URL;
-import com.qaprosoft.pages.PhoneModelsPage;
+// import com.qaprosoft.pages.PhoneModelsPage;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.FindBy;
+//import org.openqa.selenium.support.FindBy;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractPage;
 
 public class StartPage extends AbstractPage {
-	@FindBy(xpath = "//div[@id='container']//a[contains(text(), 'Мобильные телефоны')]")
-	private ExtendedWebElement phonesSectionLink;
-
-	@FindBy(xpath = "//div[@id='container']//a[contains(text(), 'Холодильники')]")
-	private ExtendedWebElement fridgesSectionLink;
 
 	public StartPage(WebDriver driver) {
 		super(driver);
 		setPageAbsoluteURL(ONLINER_URL);
 	}
 
-	public ExtendedWebElement getPhonesSection() {
-		return phonesSectionLink;
+	public ModelsPage selectSection(String section) {
+		String template = "//div[@id='container']//a[contains(text(), '%s')]";
+		String xpath = String.format(template, section);
+		ExtendedWebElement sectionLink = new ExtendedWebElement(driver.findElement(By.xpath(xpath)));
+		sectionLink.click();
+		return new ModelsPage(driver);
 	}
 
-	public ExtendedWebElement getFridgesSection() {
-		return fridgesSectionLink;
-	}
-
-	public PhoneModelsPage tapOnPhonesSection() {
-		phonesSectionLink.click();
-		return new PhoneModelsPage(driver);
-	}
-
-	public FridgeModelsPage tapOnFridgesSection() {
-		fridgesSectionLink.click();
-		return new FridgeModelsPage(driver);
-	}
 }

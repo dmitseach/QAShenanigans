@@ -30,10 +30,10 @@ public class MyBatis {
 			fridgeMapper = sqlSessionFactory.openSession().getMapper(FridgeMapper.class);
 
 			List<Phone> phones = phoneMapper.getPhones();
-			Phone phone = phoneMapper.getPhoneById();
+			Phone phone = phoneMapper.getPhoneById(1);
 
 			List<Fridge> fridges = fridgeMapper.getFridges();
-			Fridge fridge = fridgeMapper.getFridgeById();
+			Fridge fridge = fridgeMapper.getFridgeById(1);
 
 		} catch (IOException e) {
 			LOGGER.error("IOException", e);
