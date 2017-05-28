@@ -1,7 +1,6 @@
 package com.qaprosoft.dao;
 
 import static com.qaprosoft.utils.Constants.DB.MYBATIS_CFG;
-import static com.qaprosoft.utils.Constants.DB.DB_CFG;
 
 import java.io.IOException;
 import java.io.Reader;
