@@ -1,6 +1,7 @@
 package com.qaprosoft.dao;
 
 import static com.qaprosoft.utils.Constants.DB.MYBATIS_CFG;
+import static com.qaprosoft.utils.Constants.DB.DB_CFG;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -19,21 +20,21 @@ public class MyBatis {
 	public static void main(String[] args) {
 		SqlSessionFactory sqlSessionFactory;
 		PhoneMapper phoneMapper;
-		FridgeMapper fridgeMapper;
+	//	FridgeMapper fridgeMapper;
 		Reader reader = null;
-		PhoneDAO phoneDAO;
-
+		 
 		try {
 			reader = Resources.getResourceAsReader(MYBATIS_CFG);
 			sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
 			phoneMapper = sqlSessionFactory.openSession().getMapper(PhoneMapper.class);
-			fridgeMapper = sqlSessionFactory.openSession().getMapper(FridgeMapper.class);
+			//fridgeMapper = sqlSessionFactory.openSession().getMapper(FridgeMapper.class);
 
 			List<Phone> phones = phoneMapper.getPhones();
 			Phone phone = phoneMapper.getPhoneById(1);
-
-			List<Fridge> fridges = fridgeMapper.getFridges();
-			Fridge fridge = fridgeMapper.getFridgeById(1);
+			System.out.println(phones);
+			System.out.println(phone);
+			//List<Fridge> fridges = fridgeMapper.getFridges();
+			//Fridge fridge = fridgeMapper.getFridgeById(1);
 
 		} catch (IOException e) {
 			LOGGER.error("IOException", e);

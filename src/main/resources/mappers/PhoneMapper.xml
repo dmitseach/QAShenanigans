@@ -2,10 +2,15 @@
 
 <mapper namespace="mappers">
 
-    <select id="getPhoneById" parameterType='Integer' resultMap="PhoneResult">
-		 
-	SELECT * FROM Phone WHERE id = #{id}  
-		 
+	<select id="getPhoneById" parameterType='Integer' resultMap="PhoneResult">
+
+		SELECT * FROM Phone WHERE id = #{id}
+
 	</select>
 	
+	<select id="getPhones" resultMap="PhoneResult">
+
+		SELECT * FROM phones
+
+	</select>
 </mapper>

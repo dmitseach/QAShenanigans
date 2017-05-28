@@ -10,7 +10,8 @@ public interface Constants {
 	}
 
 	public interface DB {
-		String MYBATIS_CFG = R.CONFIG.get("mybatis_config.xml");
+		String MYBATIS_CFG = R.CONFIG.get("mybatis-config.xml");
+		String DB_CFG = R.CONFIG.get("database.properties");
 		String ENV = Configuration.get(Parameter.ENV).toLowerCase();
 	}
 }

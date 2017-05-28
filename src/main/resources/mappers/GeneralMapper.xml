@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mappers">
+
+	<resultMap type="Phone" id="PhoneResult" autoMapping="false">
+		<id column="ID" property="id" />
+		<id column="Model" property="model" />
+		<id column="Resolution" property="resolution" />
+		<id column="Brand_ID" property="brand" association property="Brand"
+			resultMap="BrandResult" />
+		<id column="OS_ID" property="os" association property="OS"
+			resultMap="OsResult" />
+		<id column="Display_ID" property="display" association property="Display"
+			resultMap="DisplayResult" />
+		<id column="Year_ID" property="year" association property="Year"
+			resultMap="YearResult" />
+	</resultMap>
+
+	<resultMap type="Fridge" id="FridgeResult" autoMapping="false">
+		<id column="ID" property="id" />
+		<id column="Model" property="model" />
+		<id column="Brand_ID" property="brand" association property="Brand"
+			resultMap="BrandResult" />
+		<id column="Colour_ID" property="colour" association property="Colour"
+			resultMap="ColourResult" />
+		<id column="CoolSyst_ID" property="coolSyst" association property="CoolSyst"
+			resultMap="CoolSystResult" />
+		<id column="ConstrType_ID" property="constrType" association
+			property="ConstrType" resultMap="ConstrTypeResult" />
+	</resultMap>
+
+	<resultMap type="Brand" id="AddressResult" autoMapping="false">
+		<id column="ID" property="id" />
+		<id column="NAME" property="name" />
+	</resultMap>
+
+	<resultMap type="OS" id="OsResult" autoMapping="false">
+		<id column="ID" property="id" />
+		<id column="Name" property="name" />
+	</resultMap>
+
+	<resultMap type="Display" id="DisplayResult" autoMapping="false">
+		<id column="ID" property="id" />
+		<id column="Type" property="type" />
+	</resultMap>
+
+	<resultMap type="Year" id="YearResult" autoMapping="false">
+		<id column="ID" property="id" />
+		<id column="Year" property="year" />
+	</resultMap>
+
+	<resultMap type="Colour" id="ColourResult" autoMapping="false">
+		<id column="ID" property="id" />
+		<id column="Colour" property="colour" />
+	</resultMap>
+
+	<resultMap type="CoolSyst" id="CoolSystResult" autoMapping="false">
+		<id column="ID" property="id" />
+		<id column="Type" property="type" />
+	</resultMap>
+
+	<resultMap type="ConstrType" id="ConstrTypeResult"
+		autoMapping="false">
+		<id column="ID" property="id" />
+		<id column="Type" property="type" />
+	</resultMap>
+
+	<resultMap type="Origin" id="OriginResult" autoMapping="false">
+		<id column="ID" property="id" />
+		<id column="COUNTRY" property="name" />
+		<id column="CITY" property="city" />
+		<id column="Brand_ID" property="brand" association property="Brand"
+			resultMap="BrandResult" />
+
+</mapper>
