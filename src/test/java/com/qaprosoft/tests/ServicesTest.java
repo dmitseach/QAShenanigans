@@ -15,7 +15,7 @@ public class ServicesTest extends UITest {
 	private static FridgeService fridgeService;
 
 	public void testGetPhoneById() {
-		Phone phone = phoneService.getUserById(1);
+		Phone phone = phoneService.getPhoneById(1);
 		System.out.println(phone);
 	}
 

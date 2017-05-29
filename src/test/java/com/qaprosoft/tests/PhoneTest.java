@@ -36,9 +36,10 @@ public class PhoneTest extends UITest {
 	public void testPhoneModelSpecsToDB(String id, String brand, String model, String resolution, String os,
 			String display, String year) {
 		PhoneService phoneService = new PhoneService();
-		Phone phone = phoneService.getUserById(1);
-		String dbData = "";
-		String xlsData = id + " " + model + " " + resolution + " " + brand + " " + os + " " + display + " " + year;
+		Phone phone = phoneService.getPhoneById(1);
+		String dbData = String.join(" ", String.valueOf(phone.getId()), phone.getModel(), phone.getResolution(),
+				phone.getOs(), phone.getDisplay(), phone.getYear());
+		String xlsData = String.join(" ", id, model, resolution, brand, os, display, year);
 		Assert.assertEquals(dbData, xlsData, "Model data is invalid against DB data!");
 	}
 }
