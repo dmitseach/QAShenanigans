@@ -3,14 +3,23 @@
 <mapper namespace="mappers">
 
 	<select id="getFridgeById" parameterType="Integer" resultMap="FridgeResult">
-
-		SELECT * FROM fridges WHERE id = #{id}
-
+		SELECT Fridge.id as id, Fridge.model as model, Brand.name as brand,
+		Colour.colour as colour, CoolSyst.type as coolSyst, ConstrType.type as
+		constrType
+		FROM Fridge LEFT JOIN Brand ON Fridge.Brand_id = Brand.id
+		LEFT JOIN Colour ON Fridge.Colour_id = Colour.id
+		LEFT JOIN CoolSyst ON Fridge.CoolSyst_id = CoolSyst.id
+		LEFT JOIN ConstrType ON Fridge.ConstrType_id = ConstrType.id
+		WHERE Fridge.id = #{id} ;
 	</select>
-	
+
 	<select id="getFridges" resultMap="FridgeResult">
-
-		SELECT * FROM fridges
-
+		SELECT Fridge.id as id, Fridge.model as model, Brand.name as brand,
+		Colour.colour as colour, CoolSyst.type as coolSyst, ConstrType.type as
+		constrType
+		FROM Fridge LEFT JOIN Brand ON Fridge.Brand_id = Brand.id
+		LEFT JOIN Colour ON Fridge.Colour_id = Colour.id
+		LEFT JOIN CoolSyst ON Fridge.CoolSyst_id = CoolSyst.id
+		LEFT JOIN ConstrType ON Fridge.ConstrType_id = ConstrType.id
 	</select>
 </mapper>
