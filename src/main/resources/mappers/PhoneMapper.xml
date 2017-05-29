@@ -2,7 +2,7 @@
 
 <mapper namespace="mappers">
 
-	<select id="getPhoneById" parameterType='Integer' resultMap="PhoneResult">
+	<select id="getPhoneById" parameterType="Integer" resultMap="PhoneResult">
 
 		SELECT * FROM Phone WHERE id = #{id}
 

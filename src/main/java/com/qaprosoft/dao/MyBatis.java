@@ -1,44 +1,34 @@
 package com.qaprosoft.dao;
 
-import static com.qaprosoft.utils.Constants.DB.MYBATIS_CFG;
+// import static com.qaprosoft.utils.Constants.DB.MYBATIS_CFG;
 
 import java.io.IOException;
 import java.io.Reader;
-import java.util.List;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
-import com.qaprosoft.objects.*;
-
 public class MyBatis {
 	private final static Logger LOGGER = LogManager.getLogger(MyBatis.class);
+	private static SqlSessionFactory factory;
 
-	public static void main(String[] args) {
-		SqlSessionFactory sqlSessionFactory;
-		PhoneMapper phoneMapper;
-	//	FridgeMapper fridgeMapper;
+	private MyBatis() {
+	}
+
+	static {
 		Reader reader = null;
-		 
 		try {
-			reader = Resources.getResourceAsReader(MYBATIS_CFG);
-			sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
-			phoneMapper = sqlSessionFactory.openSession().getMapper(PhoneMapper.class);
-			//fridgeMapper = sqlSessionFactory.openSession().getMapper(FridgeMapper.class);
-
-			List<Phone> phones = phoneMapper.getPhones();
-			Phone phone = phoneMapper.getPhoneById(1);
-			System.out.println(phones);
-			System.out.println(phone);
-			//List<Fridge> fridges = fridgeMapper.getFridges();
-			//Fridge fridge = fridgeMapper.getFridgeById(1);
-
+			reader = Resources.getResourceAsReader("mybatis-config.xml");
 		} catch (IOException e) {
 			LOGGER.error("IOException", e);
 		}
+		factory = new SqlSessionFactoryBuilder().build(reader);
+	}
 
+	public static SqlSessionFactory getSqlSessionFactory() {
+		return factory;
 	}
 
 }

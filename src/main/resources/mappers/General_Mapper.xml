@@ -7,27 +7,39 @@
 		<id column="ID" property="id" />
 		<id column="Model" property="model" />
 		<id column="Resolution" property="resolution" />
-		<id column="Brand_ID" property="brand" association property="Brand"
-			resultMap="BrandResult" />
-		<id column="OS_ID" property="os" association property="OS"
-			resultMap="OsResult" />
-		<id column="Display_ID" property="display" association property="Display"
-			resultMap="DisplayResult" />
-		<id column="Year_ID" property="year" association property="Year"
-			resultMap="YearResult" />
+		<association property="brand" javaType="Brand" resultMap="BrandResult">
+			<id property="brand" column="Brand_ID" />
+		</association>
+		<association property="OS" javaType="Os" resultMap="OsResult">
+			<id property="os" column="OS_ID" />
+		</association>
+		<association property="Display" javaType="Display"
+			resultMap="DisplayResult">
+			<id property="display" column="Display_ID" />
+		</association>
+		<association property="Year" javaType="Year" resultMap="YearResult">
+			<id property="year" column="Year_ID" />
+		</association>
 	</resultMap>
 
 	<resultMap type="Fridge" id="FridgeResult" autoMapping="false">
 		<id column="ID" property="id" />
 		<id column="Model" property="model" />
-		<id column="Brand_ID" property="brand" association property="Brand"
-			resultMap="BrandResult" />
-		<id column="Colour_ID" property="colour" association property="Colour"
-			resultMap="ColourResult" />
-		<id column="CoolSyst_ID" property="coolSyst" association property="CoolSyst"
-			resultMap="CoolSystResult" />
-		<id column="ConstrType_ID" property="constrType" association
-			property="ConstrType" resultMap="ConstrTypeResult" />
+		<association property="brand" javaType="Brand" resultMap="BrandResult">
+			<id property="brand" column="Brand_ID" />
+		</association>
+		<association property="colour" javaType="Colour"
+			resultMap="ColourResult">
+			<id property="colour" column="Colour_ID" />
+		</association>
+		<association property="coolSyst" javaType="CoolSyst"
+			resultMap="CoolSyst">
+			<id property="coolSyst" column="CoolSyst_ID" />
+		</association>
+		<association property="constrType" javaType="ConstrType"
+			resultMap="ConstrTypeResult">
+			<id property="constrType" column="ConstrType_ID" />
+		</association>
 	</resultMap>
 
 	<resultMap type="Brand" id="AddressResult" autoMapping="false">
@@ -70,7 +82,8 @@
 		<id column="ID" property="id" />
 		<id column="COUNTRY" property="name" />
 		<id column="CITY" property="city" />
-		<id column="Brand_ID" property="brand" association property="Brand"
-			resultMap="BrandResult" />
-
+		<association property="brand" javaType="Brand" resultMap="BrandResult">
+			<id property="brand" column="Brand_ID" />
+		</association>
+	</resultMap>
 </mapper>

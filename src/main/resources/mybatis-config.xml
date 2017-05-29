@@ -15,10 +15,18 @@
 	<typeAliases>
 		<typeAlias alias="Phone" type="com.qaprosoft.objects.Phone" />
 		<typeAlias alias="Fridge" type="com.qaprosoft.objects.Fridge" />
+		<typeAlias alias="Brand" type="com.qaprosoft.objects.Brand" />
+		<typeAlias alias="Colour" type="com.qaprosoft.objects.Colour" />
+		<typeAlias alias="ConstrType" type="com.qaprosoft.objects.ConstrType" />
+		<typeAlias alias="CoolSyst" type="com.qaprosoft.objects.CoolSyst" />
+		<typeAlias alias="Display" type="com.qaprosoft.objects.Display" />
+		<typeAlias alias="Origin" type="com.qaprosoft.objects.Origin" />
+		<typeAlias alias="OS" type="com.qaprosoft.objects.OS" />
+		<typeAlias alias="Year" type="com.qaprosoft.objects.Year" />
 	</typeAliases>
 
-	<environments default="prod">
-		<environment id="prod">
+	<environments default="PROD">
+		<environment id="PROD">
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
 				<property name="driver" value="${PROD.onliner.db.driver}" />
@@ -33,8 +41,9 @@
 		<mapper class="com.qaprosoft.dao.PhoneMapper" />
 		<mapper class="com.qaprosoft.dao.FridgeMapper" />
 
-		<mapper resource="/src/main/resources/mappers/PhoneMapper.xml" />
-		<mapper resource="/src/main/resources/mappers/FridgeMapper.xml" />
+		<mapper resource="mappers/PhoneMapper.xml" />
+		<mapper resource="mappers/FridgeMapper.xml" />
+		<mapper resource="mappers/General_Mapper.xml" />
 	</mappers>
 
 </configuration>

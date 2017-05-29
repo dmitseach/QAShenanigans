@@ -2,7 +2,7 @@
 
 <mapper namespace="mappers">
 
-	<select id="getFridgeById" parameterType='Integer' resultMap="FridgeResult">
+	<select id="getFridgeById" parameterType="Integer" resultMap="FridgeResult">
 
 		SELECT * FROM fridges WHERE id = #{id}
 

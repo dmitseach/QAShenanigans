@@ -15,6 +15,16 @@ public class Phone {
 	private String display;
 	private String year;
 
+	public Phone(long id, String model, String brand, String resolution, String os, String display, String year) {
+		this.id = id;
+		this.model = model;
+		this.brand = brand;
+		this.resolution = resolution;
+		this.os = os;
+		this.display = display;
+		this.year = year;
+	}
+
 	public long getId() {
 		return id;
 	}
