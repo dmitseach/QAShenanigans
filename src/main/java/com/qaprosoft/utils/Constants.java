@@ -1,17 +1,20 @@
 package com.qaprosoft.utils;
 
 import com.qaprosoft.carina.core.foundation.utils.Configuration;
-import com.qaprosoft.carina.core.foundation.utils.R;
-import com.qaprosoft.carina.core.foundation.utils.Configuration.Parameter;
 
 public interface Constants {
 	public interface URLS {
 		String ONLINER_URL = Configuration.getEnvArg("onliner_url");
+		String VK_API_URL = Configuration.getEnvArg("vk.users.get.api.url");
 	}
 
 	public interface DB {
-		String MYBATIS_CFG = R.CONFIG.get("mybatis-config.xml");
-		String DB_CFG = R.CONFIG.get("database.properties");
-		String ENV = Configuration.get(Parameter.ENV).toLowerCase();
+		String MYBATIS_CFG = "mybatis-config.xml";
+		String USER_XLS = "json/XLS_DATA/User.xls";
+		String DB_CFG = "database.properties";
+	}
+
+	public interface API {
+		String USER_XLS = "json/XLS_DATA/UserByID.xls";
 	}
 }
