@@ -6,7 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.qaprosoft.objects.Phone;
 
-public class PhoneService {
+public class PhoneDAO {
 	public Phone getPhoneById(Integer id) {
 		SqlSession sqlSession = MyBatis.getSqlSessionFactory().openSession();
 		try {

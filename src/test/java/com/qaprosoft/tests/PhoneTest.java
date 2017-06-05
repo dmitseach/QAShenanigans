@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 import com.qaprosoft.carina.core.foundation.UITest;
 import com.qaprosoft.carina.core.foundation.dataprovider.annotations.XlsDataSourceParameters;
-import com.qaprosoft.dao.PhoneService;
+import com.qaprosoft.dao.PhoneDAO;
 import com.qaprosoft.objects.Phone;
 import com.qaprosoft.pages.*;
 
@@ -35,8 +35,8 @@ public class PhoneTest extends UITest {
 	@XlsDataSourceParameters(path = "xls/test.xlsx", sheet = "Phones", dsUid = "TUID", dsArgs = "id, brand, resolution, os, display, year")
 	public void testPhoneModelSpecsToDB(String id, String brand, String model, String resolution, String os,
 			String display, String year) {
-		PhoneService phoneService = new PhoneService();
-		Phone phone = phoneService.getPhoneById(1);
+		PhoneDAO phoneDAO = new PhoneDAO();
+		Phone phone = phoneDAO.getPhoneById(1);
 		String dbData = String.join(" ", String.valueOf(phone.getId()), phone.getModel(), phone.getResolution(),
 				phone.getOs(), phone.getDisplay(), phone.getYear());
 		String xlsData = String.join(" ", id, model, resolution, brand, os, display, year);

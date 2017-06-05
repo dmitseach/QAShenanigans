@@ -2,7 +2,7 @@ package com.qaprosoft.utils.vk;
 
 public enum VersionApi {
 
-	V("5.64");
+	V("&v=5.64");
 
 	private String version;
 

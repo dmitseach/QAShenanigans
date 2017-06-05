@@ -1,0 +1,18 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite verbose="1" name="API Sanity" skipfailedinvocationcounts="false"
+	junit="false" parallel="tests" data-provider-thread-count="1" annotations="JDK">
+	
+	<listeners>
+		<listener
+			class-name="com.qaprosoft.carina.core.foundation.retry.AnnotationTransformer" />
+	</listeners>
+	
+	<test name="Test User APIs">
+		<classes>
+			<class name="com.qaprosoft.tests.UserAPITest" />
+		</classes>
+	</test>
+	
+	
+</suite>

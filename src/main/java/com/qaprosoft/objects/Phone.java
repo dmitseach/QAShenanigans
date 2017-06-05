@@ -4,12 +4,12 @@ public class Phone {
 	private long id;
 	private String model;
 	private String resolution;
-	private String brand;
+	private Brand brand;
 	private String os;
 	private String display;
 	private String year;
 
-	public Phone(long id, String model, String brand, String resolution, String os, String display, String year) {
+	public Phone(long id, String model, Brand brand, String resolution, String os, String display, String year) {
 		this.id = id;
 		this.model = model;
 		this.brand = brand;
@@ -31,7 +31,7 @@ public class Phone {
 		return resolution;
 	}
 
-	public String getBrand() {
+	public Brand getBrand() {
 		return brand;
 	}
 

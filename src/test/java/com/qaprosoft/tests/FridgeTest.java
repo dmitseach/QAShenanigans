@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 import com.qaprosoft.carina.core.foundation.UITest;
 import com.qaprosoft.carina.core.foundation.dataprovider.annotations.XlsDataSourceParameters;
-import com.qaprosoft.dao.FridgeService;
+import com.qaprosoft.dao.FridgeDAO;
 import com.qaprosoft.objects.Fridge;
 import com.qaprosoft.pages.*;
 
@@ -31,8 +31,8 @@ public class FridgeTest extends UITest {
 	@Test(dataProvider = "SingleDataProvider", description = "1.2 Verify model data against DB data", dependsOnMethods = "testFridgeModelSpecs")
 	@XlsDataSourceParameters(path = "xls/test.xlsx", sheet = "Fridges", dsUid = "TUID", dsArgs = "id, brand, colour, coolSyst, constrType")
 	public void testModelSpecs(String id, String brand, String colour, String coolSyst, String constrType) {
-		FridgeService fridgeService = new FridgeService();
-		Fridge fridge = fridgeService.getFridgeById(1);
+		FridgeDAO fridgeDAO = new FridgeDAO();
+		Fridge fridge = fridgeDAO.getFridgeById(1);
 		String dbData = String.join(" ", String.valueOf(fridge.getId()), fridge.getModel(), fridge.getColour(),
 				fridge.getCoolSyst(), fridge.getConstrType());
 		String xlsData = String.join(" ", id, brand, colour, coolSyst, constrType);

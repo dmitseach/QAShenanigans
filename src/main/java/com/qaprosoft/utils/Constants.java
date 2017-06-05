@@ -16,5 +16,6 @@ public interface Constants {
 
 	public interface API {
 		String USER_XLS = "json/XLS_DATA/UserByID.xls";
+		String MSSG_XLS = "json/XLS_DATA/Message.xls";
 	}
 }

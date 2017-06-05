@@ -11,10 +11,10 @@ public class Fridge {
 	public Fridge(long id, String model, String brand, String colour, String coolSyst, String constrType) {
 		this.id = id;
 		this.model = model;
-		this.brand = brand;
-		this.colour = colour;
 		this.coolSyst = coolSyst;
 		this.constrType = constrType;
+		this.colour = colour;
+		this.brand = brand;
 	}
 
 	public long getId() {
@@ -25,20 +25,20 @@ public class Fridge {
 		return model;
 	}
 
-	public String getBrand() {
-		return brand;
-	}
-
-	public String getColour() {
-		return colour;
-	}
-
 	public String getCoolSyst() {
 		return coolSyst;
 	}
 
 	public String getConstrType() {
 		return constrType;
+	}
+
+	public String getBrand() {
+		return brand;
+	}
+
+	public String getColour() {
+		return colour;
 	}
 
 }

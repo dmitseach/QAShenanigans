@@ -9,10 +9,10 @@ import java.util.List;
 import org.testng.annotations.Test;
 
 @Test(description = "ServicesTest")
-public class ServicesTest extends UITest {
+public class DAOServicesTest extends UITest {
 
-	private static PhoneService phoneService;
-	private static FridgeService fridgeService;
+	private static PhoneDAO phoneService;
+	private static FridgeDAO fridgeService;
 
 	public void testGetPhoneById() {
 		Phone phone = phoneService.getPhoneById(1);

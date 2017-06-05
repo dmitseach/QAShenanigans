@@ -17,7 +17,8 @@ public abstract class AbstractAPITest extends APITest {
 
 	protected final static String USER_URL = "/v1/user-api/user";
 	protected final static String USER_JSON = "json/requests/User.json";
-
+	protected final static String MSSG_JSON = "json/requests/Message.json";
+	
 	protected final static String SECRET_KEY = "key=8WRAig3bXUIHQZrL6ftTsoou7LGVTw1TOeqdmjb/";
 	protected final static String CONTENT_TYPE = "Content-Type=application/json";
 

@@ -6,7 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.qaprosoft.objects.Fridge;
 
-public class FridgeService {
+public class FridgeDAO {
 	public Fridge getFridgeById(Integer id) {
 		SqlSession sqlSession = MyBatis.getSqlSessionFactory().openSession();
 		try {
